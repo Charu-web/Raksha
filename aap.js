@@ -1,4 +1,4 @@
-unction saveContact() {
+function saveContact() {
     const contact = document.getElementById("contactInput").value.trim();
     if (contact) {
         localStorage.setItem("emergencyContact", contact);
