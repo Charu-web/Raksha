@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Body with animated gradient + floating shields */
+body {
+  background: linear-gradient(135deg, #ff6b81, #f8a5c2);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Floating emojis */
+body::before, body::after {
+  content: "🛡";
+  position: absolute;
+  font-size: 3rem;
+  opacity: 0.3;
+  animation: float 6s linear infinite;
+}
+
+body::before {
+  top: 20%;
+  left: -10%;
+  animation-delay: 0s;
+}
+
+body::after {
+  bottom: 10%;
+  right: -10%;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-30px) rotate(20deg); }
+  100% { transform: translateY(0) rotate(0); }
+}
+
+/* Glass card container with pulse */
+.container {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 30px;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  animation: pulse 3s infinite;
+}
+
+/* Pulse animation on card */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  }
+  50% {
+    transform: scale(1.03);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+  }
+}
+
+/* Headings */
+.container h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.container p {
+  margin: 8px 0;
+  font-size: 1rem;
+}
+
+.container h3 {
+  margin: 20px 0 10px;
+}
+
+/* Inputs */
+.container input[type="tel"] {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 30px;
+  width: 80%;
+  margin: 10px 0;
+  outline: none;
+  font-size: 1rem;
+}
+
+/* Buttons */
+.container button {
+  display: inline-block;
+  background: #fff;
+  color: #d81b60;
+  border: none;
+  padding: 12px 25px;
+  margin: 12px 0;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* SOS button with glow */
+#sosBtn {
+  background: #d81b60;
+  color: #fff;
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px #d81b60, 0 0 20px #d81b60, 0 0 30px #d81b60;
+  }
+  to {
+    box-shadow: 0 0 20px #ff99b9, 0 0 30px #ff99b9, 0 0 40px #ff99b9;
+  }
+}
+
+.container button:hover {
+  background: #ffe2eb;
+  color: #d81b60;
+}
+
+/* Status text & contact status */
+#status, #contactStatus {
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+/* Links */
+.container a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .container {
+    padding: 20px;
+  }
+  .container h1 {
+    font-size: 2rem;
+  }
+}
